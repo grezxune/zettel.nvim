@@ -1,6 +1,6 @@
 # Zettel.nvim
 
-This is my take on creating a Neovim experience for Zettelkasten note taking. I use Obsidian but work mostly in Neovim so I wanted an extremely efficient way to add a note to my Zettelkasten in the middle of my workflow. This plugin allows me to do that. You can configure it to your liking by providing a template file as well as placeholders and what you'd like to see happen with those placeholders. There are two default placeholders which which will be outlined below.
+This is my take on creating a Zettelkasten note taking experience in Neovim. I use Obsidian but work mostly in Neovim so I wanted an extremely efficient way to add a note to my Zettelkasten in the middle of my workflow. This plugin allows me to do that. You can configure it to your liking by providing a template file as well as placeholders and what you'd like to see happen with those placeholders. There are two default placeholders which which will be outlined below.
 
 tl;dr: This plugin allows you to create a new note in your Zettelkasten with a single command. You can configure the template and placeholders to your liking.
 
