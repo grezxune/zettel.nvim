@@ -8,7 +8,7 @@ function Zettel.setup(config)
 		note_file_format = config.note_file_format or ".md",
 		destination_location = config.destination_location or vim.fn.expand("%:p:h"),
 		placeholders = {},
-	}, {})
+	}, Zettel)
 
 	local instance = zettel
 
