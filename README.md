@@ -40,6 +40,35 @@ return {
 }
 ```
 
+### Default configuration
+```lua
+    filename = "",
+    template_file = config.template_file or nil,
+    note_file_format = config.note_file_format or ".md",
+    destination_location = config.destination_location or vim.fn.expand("%:p:h"),
+    create_filename = config.create_filename or function(instance)
+      -- Example zettel naming scheme with a date
+      -- instance.filename = os.date("%m-%d-%Y") .. "-" .. vim.fn.input("Zettel name: ")
+
+      -- Example zettel with default naming scheme
+      instance.filename = vim.fn.input("Zettel name: ")
+    end,
+    placeholders = config.placeholders or {
+      {
+        pattern = "{{ID}}",
+        run = function(instance)
+          return instance.filename
+        end,
+      },
+      {
+        pattern = "{{DATE}}",
+        run = function()
+          return tostring(os.date("%x"))
+        end,
+      },
+    },
+```
+
 ## Example template file
 
 ```markdown
