@@ -45,7 +45,7 @@ function Zettel:reset()
 end
 
 function Zettel:open_file()
-	vim.cmd("e" .. self:get_file_path())
+	vim.cmd("e " .. self:get_file_path())
 end
 
 function Zettel:get_filename_with_ext()

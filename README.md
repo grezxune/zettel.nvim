@@ -20,13 +20,13 @@ return {
       placeholders = { -- These are the default values
         {
           pattern = '{{ID}}',
-          value = function(instance)
+          run = function(instance)
             return instance.filename
           end,
         },
         {
           pattern = '{{DATE}}',
-          value = function()
+          run = function()
             return tostring(os.date '%x')
           end,
         },
