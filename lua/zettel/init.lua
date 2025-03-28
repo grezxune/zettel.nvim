@@ -4,11 +4,14 @@ Zettel.__index = Zettel
 function Zettel.setup(config)
 	local zettel = setmetatable({
 		filename = "",
+		prompt = config.prompt or "Zettel name: ",
 		template_file = config.template_file or nil,
 		note_file_format = config.note_file_format or ".md",
-		destination_location = config.destination_location or vim.fn.expand("%:p:h"),
+		destination_location = config.destination_location or function()
+			vim.fn.expand("%:p:h")
+		end,
 		create_filename = config.create_filename or function(instance)
-			instance.filename = vim.fn.input("Zettel name: ")
+			instance.filename = vim.fn.input(instance.prompt)
 		end,
 		placeholders = config.placeholders or {
 			{
@@ -53,7 +56,7 @@ function Zettel:get_filename_with_ext()
 end
 
 function Zettel:get_file_path()
-	return self.destination_location .. "/" .. self:get_filename_with_ext()
+	return self.destination_location() .. "/" .. self:get_filename_with_ext()
 end
 
 function Zettel:run_placeholders(file_contents)
